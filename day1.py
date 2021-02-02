@@ -1,0 +1,1 @@
+print("Your name has "+str(len(input("your name ")))+" letters ")
