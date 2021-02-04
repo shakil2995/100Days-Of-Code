@@ -1,6 +1,7 @@
 #                                            tiket calculator
 payment=0
-height=int(input("Enter height in cm : "))
+height=0
+height=int(float(input("Enter height in cm : ")))
 if height>=120:
     age=int(input("Enter your age : "))
     if age<=12:
@@ -19,3 +20,4 @@ if height>=120:
         print(f"Total bill is {payment}")
 else:
     print("You Can't Ride.")
+
