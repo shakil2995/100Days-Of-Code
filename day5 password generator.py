@@ -52,3 +52,5 @@ while pass_length!=0:
         pass_length-=1
 
 print(f"Your generated password is : {password_text}")
+
+#random.shuffle(listName)
