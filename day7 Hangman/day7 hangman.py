@@ -4,13 +4,10 @@ from hangmanStagesAndLogo import stages
 from hangmanStagesAndLogo import logo
 from HangmanWords import word_list
 lives=6
-
-#word_list=["tiger","baboon","camel","horse","elephant","monkey"]
 guess=""
 display=[]
 index=0
 chosen_word=random.choice(word_list)
-chosen_word='Baboon'
 print(chosen_word)
 for position in range(len(chosen_word)):
     display.append("_")
@@ -38,12 +35,13 @@ while not end_of_game:
     elif flag==False and position==len(chosen_word)-1:
       lives=lives-1
 
-      if (lives<=3 and lives !=0):
+      if (lives<=4 and lives !=0):
         print("Hint : "+str(hint(chosen_word[lives],chosen_word)))
 
       if (lives==0):
         end_of_game=True
         print("You ran out of life .You lose")
+        print(f"The word was : {chosen_word}")
       else:
         print(f"You guessed {guess},that is not in the word. You lose a life .")
       
