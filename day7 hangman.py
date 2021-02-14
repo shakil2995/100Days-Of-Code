@@ -66,23 +66,35 @@ for position in range(len(chosen_word)):
     display.append("_")
 end_of_game=False
 while not end_of_game:
-  flag=True
+  print(stages[lives])
   guess=input("Guess a letter : ")
+  flag=False
+  flag2=True
   for position in range(len(chosen_word)):
-      letter=chosen_word[position]
-      # if letter.lower()!=guess.lower():
-      #     print(stages[lives])
-      #     lives=lives-1 
-      if letter.lower()==guess.lower():
-        display[position]=letter
-        if "_" not in display:
-            end_of_game=True
-            print("You Win")
-      elif flag:
-        print(stages[lives])
-        lives=lives-1   
-        flag=False
+    letter=chosen_word[position]
+    if guess.lower() in display and flag2==True:
+      print("You have already guessed this letter . Try again. ")
+      flag=True
+      flag2=False
+    elif letter.lower()==guess.lower():
+      display[position]=letter
+      flag=True
+      flag2=False
+      if "_" not in display:
+          end_of_game=True
+          print("\nYou have guessed the correct word.\n   ######### You Win #########")
+    elif flag==False and position==len(chosen_word)-1:
+      lives=lives-1
+      if (lives==0):
+        end_of_game=True
+        print("\nYou ran out of life .You lose")
+      else:
+        print(f"\nYou guessed {guess},that is not in the word. You lose a life .")
+      
+  print("\n")    
   print(display)
+
+  #print(stages[lives])
 
     
 
