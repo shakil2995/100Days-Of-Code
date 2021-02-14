@@ -68,12 +68,16 @@ stages = ['''
       |
 =========
 ''']
+
+
+
 lives=6
 word_list=["tiger","baboon","camel","horse","elephant","monkey"]
 guess=""
 display=[]
 index=0
 chosen_word=random.choice(word_list)
+chosen_word='Baboon'
 print(chosen_word)
 for position in range(len(chosen_word)):
     display.append("_")
@@ -100,8 +104,9 @@ while not end_of_game:
           print("You have guessed the correct word.\n   ######### You Win #########")
     elif flag==False and position==len(chosen_word)-1:
       lives=lives-1
+
       if (lives<=3):
-        print("Hint : "+chosen_word[lives])
+        print("Hint : "+str(hint(chosen_word[lives],chosen_word)))
 
       if (lives==0):
         end_of_game=True
@@ -113,5 +118,12 @@ while not end_of_game:
   print(stages[lives])
   #print(stages[lives])
 
-    
+  def hint(letter,pw):
+    if letter not in display: 
+      return str(letter)
+    else:
+      word=pw
+      word[random.randint(0,len(word))]
+      hint(word,pw)
+
 
