@@ -66,17 +66,23 @@ for position in range(len(chosen_word)):
     display.append("_")
 end_of_game=False
 while not end_of_game:
-    guess=input("Guess a letter : ")
-    for position in range(len(chosen_word)):
-        letter=chosen_word[position]
-        if letter.lower()==guess.lower():
-            display[position]=letter
-            if "_" not in display:
-                end_of_game=True
-                print("You Win")
-        else:
-            print(stages[lives])
-            lives=lives-1          
-    print(display)
+  flag=True
+  guess=input("Guess a letter : ")
+  for position in range(len(chosen_word)):
+      letter=chosen_word[position]
+      # if letter.lower()!=guess.lower():
+      #     print(stages[lives])
+      #     lives=lives-1 
+      if letter.lower()==guess.lower():
+        display[position]=letter
+        if "_" not in display:
+            end_of_game=True
+            print("You Win")
+      elif flag:
+        print(stages[lives])
+        lives=lives-1   
+        flag=False
+  print(display)
+
     
 
