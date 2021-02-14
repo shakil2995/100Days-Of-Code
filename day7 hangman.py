@@ -74,7 +74,7 @@ while not end_of_game:
             if "_" not in display:
                 end_of_game=True
                 print("You Win")
-        elif letter.lower()!=guess.lower():
+        else:
             print(stages[lives])
             lives=lives-1          
     print(display)
