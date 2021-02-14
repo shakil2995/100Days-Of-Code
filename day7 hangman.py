@@ -47,8 +47,7 @@ while not end_of_game:
       
   print(display)
   print(stages[lives])
-  #print(stages[lives])
-
+#                                    //Functions
   def hint(letter,Word):
     if letter not in display: 
       return str(letter)
