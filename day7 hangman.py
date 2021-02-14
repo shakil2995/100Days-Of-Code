@@ -1,76 +1,7 @@
 import random
 import os
-logo = ''' 
- _                                             
-| |                                            
-| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
-| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
-| | | | (_| | | | | (_| | | | | | | (_| | | | |
-|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
-                    __/ |                      
-                   |___/    '''
-
-                                                                    
-                                                                    
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
-
-
-
+from hangmanStagesAndLogo import stages
+from hangmanStagesAndLogo import logo
 lives=6
 word_list=["tiger","baboon","camel","horse","elephant","monkey"]
 guess=""
@@ -101,7 +32,7 @@ while not end_of_game:
       flag2=False
       if "_" not in display:
           end_of_game=True
-          print("You have guessed the correct word.\n   ######### You Win #########")
+          print("You have guessed the correct word.\n\n   ######### You Win #########\n")
     elif flag==False and position==len(chosen_word)-1:
       lives=lives-1
 
@@ -118,12 +49,12 @@ while not end_of_game:
   print(stages[lives])
   #print(stages[lives])
 
-  def hint(letter,pw):
+  def hint(letter,Word):
     if letter not in display: 
       return str(letter)
     else:
-      word=pw
+      word=Word
       word[random.randint(0,len(word))]
-      hint(word,pw)
+      hint(word,Word)
 
 
