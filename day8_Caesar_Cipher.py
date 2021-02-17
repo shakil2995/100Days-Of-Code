@@ -35,7 +35,7 @@ import time
 #         flag=False
 
 #                          Caesar Cipher
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 #                                            encrypt start
 def encrypt(text,shift):
     enList=[]
@@ -45,8 +45,8 @@ def encrypt(text,shift):
             enList.append(letter)
         else:
             LetterIndex=alphabet.index(letter)
-            if LetterIndex>=26-shift:
-                LetterIndex=-shift
+            # if LetterIndex>26-shift:
+            #     LetterIndex=-shift
             enList.append(alphabet[LetterIndex+shift])
     for i in enList:
         Message+=i
@@ -61,8 +61,8 @@ def decrypt(text,shift):
             enList.append(letter)
         else:
             LetterIndex=alphabet.index(letter)
-            if LetterIndex+shift<0:
-                LetterIndex+=shift
+            # if LetterIndex+shift<0:
+            #     LetterIndex+=shift
             enList.append(alphabet[LetterIndex-shift])
     for i in enList:
         Message+=i
