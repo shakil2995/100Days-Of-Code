@@ -1,11 +1,12 @@
 import math
 import os
 import time
+
 #                                         paint calculator
 # def calculateCan(height,width,coverage):
 #     NoC=(height*width)/coverage
 #     return math.ceil(NoC)
-                                
+
 # height=int(input("Enter Height of wall : "))
 # width=int(input("Width of wall : "))
 # cover=int(input("Enter coverge : "))
@@ -35,58 +36,39 @@ import time
 #         flag=False
 
 #                          Caesar Cipher
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-#                                            encrypt start
-def cipher(text,shift,direction):
-    enList=[]
-    Message=''
-    if direction.lower()=='encode':
-        for letter in text:
-            if letter not in alphabet:
-                enList.append(letter)
-            else:
-                LetterIndex=alphabet.index(letter)
-                enList.append(alphabet[LetterIndex+shift])
-    else:
-        for letter in text:
-            if letter not in alphabet:
-                enList.append(letter)
-            else:
-                LetterIndex=alphabet.index(letter)
-                enList.append(alphabet[LetterIndex-shift])
-    for i in enList:
-        Message+=i
-    print(f"The encoded message is {Message}")
-# #                                             encrypt end
-# #                                            decrypt start
-# def decrypt(text,shift):
-#     enList=[]
-#     Message=''
-#     for letter in text:
-#         if letter not in alphabet:
-#             enList.append(letter)
-#         else:
-#             LetterIndex=alphabet.index(letter)
-#             enList.append(alphabet[LetterIndex-shift])
-#     for i in enList:
-#         Message+=i
-#     print(f"The decoded message is {Message}")
-#                                                decrypt end 
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+            'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+            'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-exit=False
+
+#                                            encrypt start
+def cipher(text, shift, direction):
+    en_list = []
+    message = ''
+    for letter in text:
+        if letter not in alphabet:
+            en_list.append(letter)
+        else:
+            LetterIndex = alphabet.index(letter)
+            if direction.lower() == 'encode':
+                en_list.append(alphabet[LetterIndex + shift])
+            else:
+                en_list.append(alphabet[LetterIndex - shift])
+    for i in en_list:
+        message += i
+    print(f"The encoded message is {message}")
+
+exitFlag = False
 os.system('cls')
-while exit==False:
+while not exitFlag:
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt ,type 'exit' to exit :\n")
-    if direction.lower()=='exit':
-        exit=True
-    elif direction.lower()!='encode' or direction.lower()!='decode':
+    if direction.lower() == 'exit':
+        exitFlag = True
+    elif direction != 'encode' or direction != 'decode':
         print("Invalid input , please try again.")
+        print(type(direction))
         print('\n')
-    else :
+    else:
         text = input("Type your message:\n").lower()
         shift = int(input("Type the shift number:\n"))
-        cipher(text,shift,direction)
-
-
-
-
+        cipher(text, shift, direction)
