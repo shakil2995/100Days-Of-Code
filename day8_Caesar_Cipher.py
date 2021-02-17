@@ -35,39 +35,46 @@ import time
 #         flag=False
 
 #                          Caesar Cipher
-
-
-
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+#                                            encrypt start
 def encrypt(text,shift):
     enList=[]
     Message=''
     for letter in text:
-        LetterIndex=alphabet.index(letter)
-        if LetterIndex>=26-shift:
-            LetterIndex=-shift
-        enList.append(alphabet[LetterIndex+shift])
+        if letter not in alphabet:
+            enList.append(letter)
+        else:
+            LetterIndex=alphabet.index(letter)
+            if LetterIndex>=26-shift:
+                LetterIndex=-shift
+            enList.append(alphabet[LetterIndex+shift])
     for i in enList:
         Message+=i
-    print(Message)
-
+    print(f"The encoded message is {Message}")
+#                                             encrypt end
+#                                            decrypt start
 def decrypt(text,shift):
     enList=[]
     Message=''
     for letter in text:
-        LetterIndex=alphabet.index(letter)
-        print(alphabet[LetterIndex])
-        if LetterIndex+shift<0:
-            LetterIndex+=shift
-        enList.append(alphabet[LetterIndex-shift])
+        if letter not in alphabet:
+            enList.append(letter)
+        else:
+            LetterIndex=alphabet.index(letter)
+            if LetterIndex+shift<0:
+                LetterIndex+=shift
+            enList.append(alphabet[LetterIndex-shift])
     for i in enList:
         Message+=i
-    print(Message)
+    print(f"The decoded message is {Message}")
+#                                                decrypt end 
+
+
 exit=False
+os.system('cls')
 while exit==False:
-    os.system('cls')
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt ,type 'exit' to exit :\n")
-    if direction.lower=='exit':
+    if direction.lower()=='exit':
         exit=True
     elif direction.lower()=='encode':
         text = input("Type your message:\n").lower()
@@ -79,5 +86,6 @@ while exit==False:
         decrypt(text,shift)
     else:
         print("Invalid input , please try again.")
+    print('\n')
 
 
