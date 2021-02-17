@@ -9,7 +9,7 @@ import time
 
 # height=int(input("Enter Height of wall : "))
 # width=int(input("Width of wall : "))
-# cover=int(input("Enter coverge : "))
+# cover=int(input("Enter coverage : "))
 # print(f"You need {calculateCan(height=height,width=width,coverage=cover)} cans of Paint")
 
 #                       Prime number checker
@@ -49,14 +49,15 @@ def cipher(text, shift, direction):
         if letter not in alphabet:
             en_list.append(letter)
         else:
-            LetterIndex = alphabet.index(letter)
+            letter_index = alphabet.index(letter)
             if direction.lower() == 'encode':
-                en_list.append(alphabet[LetterIndex + shift])
+                en_list.append(alphabet[letter_index + shift])
             else:
-                en_list.append(alphabet[LetterIndex - shift])
+                en_list.append(alphabet[letter_index - shift])
     for i in en_list:
         message += i
-    print(f"The encoded message is {message}")
+    print(f"The encoded message is {message}\n")
+
 
 exitFlag = False
 os.system('cls')
@@ -64,11 +65,9 @@ while not exitFlag:
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt ,type 'exit' to exit :\n")
     if direction.lower() == 'exit':
         exitFlag = True
-    elif direction != 'encode' or direction != 'decode':
-        print("Invalid input , please try again.")
-        print(type(direction))
-        print('\n')
-    else:
+    elif direction == 'encode' or direction == 'decode':
         text = input("Type your message:\n").lower()
         shift = int(input("Type the shift number:\n"))
         cipher(text, shift, direction)
+    else:
+        print("invalid input.Please Try Again")
