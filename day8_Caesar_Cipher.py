@@ -48,6 +48,16 @@ def encrypt(text,shift):
     for i in enList:
         enMessage+=i
     print(enMessage)
+
+def decrypt(text,shift):
+    enList=[]
+    enMessage=''
+    for letter in text:
+        LetterIndex=alphabet.index(letter)
+        enList.append(alphabet[LetterIndex-shift])
+    for i in enList:
+        enMessage+=i
+    print(enMessage)
 # direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 # text = input("Type your message:\n").lower()
 # shift = int(input("Type the shift number:\n"))
@@ -69,5 +79,6 @@ def encrypt(text,shift):
 # #TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message. 
 # encrypt(text,shift)
 encrypt("hello",5)
+decrypt('mjqqt',5)
 
 
