@@ -41,32 +41,40 @@ import time
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 def encrypt(text,shift):
     enList=[]
-    enMessage=''
+    Message=''
     for letter in text:
         LetterIndex=alphabet.index(letter)
         if LetterIndex>=26-shift:
             LetterIndex=-shift
         enList.append(alphabet[LetterIndex+shift])
     for i in enList:
-        enMessage+=i
-    print(enMessage)
+        Message+=i
+    print(Message)
 
 def decrypt(text,shift):
     enList=[]
-    enMessage=''
+    Message=''
     for letter in text:
         LetterIndex=alphabet.index(letter)
-        print(LetterIndex)
         print(alphabet[LetterIndex])
         if LetterIndex+shift<0:
             LetterIndex+=shift
-            print(LetterIndex)
         enList.append(alphabet[LetterIndex-shift])
     for i in enList:
-        enMessage+=i
-    print(enMessage)
-
-encrypt("civilization",1)
-decrypt('djwjmjabujpo',1)
+        Message+=i
+    print(Message)
+exit=False
+while exit==False:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+    if direction.lower()=='encode':
+        encrypt(text,shift)
+    elif direction.lower()=='decode':
+        decrypt(text,shift)
+    elif direction.lower=='exit':
+        exit=True
+    else:
+        print("Invalid input ,Please try again.")
 
 
