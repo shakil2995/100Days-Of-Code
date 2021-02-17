@@ -67,15 +67,17 @@ exit=False
 while exit==False:
     os.system('cls')
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt ,type 'exit' to exit :\n")
-    text = input("Type your message:\n").lower()
-    shift = int(input("Type the shift number:\n"))
-    if direction.lower()=='encode':
+    if direction.lower=='exit':
+        exit=True
+    elif direction.lower()=='encode':
+        text = input("Type your message:\n").lower()
+        shift = int(input("Type the shift number:\n"))
         encrypt(text,shift)
     elif direction.lower()=='decode':
+        text = input("Type your message:\n").lower()
+        shift = int(input("Type the shift number:\n"))
         decrypt(text,shift)
-    elif direction.lower=='exit':
-        exit=True
     else:
-        print("Invalid input ,Please try again.")
+        print("Invalid input , please try again.")
 
 
