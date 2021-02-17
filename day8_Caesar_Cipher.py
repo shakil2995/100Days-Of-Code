@@ -44,7 +44,7 @@ def encrypt(text,shift):
     enMessage=''
     for letter in text:
         LetterIndex=alphabet.index(letter)
-        if LetterIndex>28:
+        if LetterIndex>=20:
             LetterIndex=0
         enList.append(alphabet[LetterIndex+shift])
     for i in enList:
@@ -56,8 +56,9 @@ def decrypt(text,shift):
     enMessage=''
     for letter in text:
         LetterIndex=alphabet.index(letter)
-        if LetterIndex<0:
-            LetterIndex=28
+        print(LetterIndex)
+        if LetterIndex<=5:
+            LetterIndex=26
         enList.append(alphabet[LetterIndex-shift])
     for i in enList:
         enMessage+=i
@@ -83,6 +84,6 @@ def decrypt(text,shift):
 # #TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message. 
 # encrypt(text,shift)
 encrypt("civilization",5)
-decrypt('mjqqt',5)
+decrypt('hnfnqnffynts',5)
 
 
