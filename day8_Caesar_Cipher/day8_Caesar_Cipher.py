@@ -1,6 +1,7 @@
 import math
 import os
 import time
+from art import logo
 
 #                                         paint calculator
 # def calculateCan(height,width,coverage):
@@ -61,6 +62,7 @@ def cipher(text, shift, direction):
 
 exitFlag = False
 os.system('cls')
+print(logo)
 while not exitFlag:
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt ,type 'exit' to exit :\n")
     if direction.lower() == 'exit':
