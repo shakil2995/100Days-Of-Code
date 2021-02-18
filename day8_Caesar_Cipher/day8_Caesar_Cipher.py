@@ -44,6 +44,7 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 
 #                                            encrypt start
 def cipher(text, shift, direction):
+    shift=shift%27
     en_list = []
     message = ''
     for letter in text:
@@ -66,6 +67,7 @@ print(logo)
 while not exitFlag:
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt ,type 'exit' to exit :\n")
     if direction.lower() == 'exit':
+        print("Goodbye")
         exitFlag = True
     elif direction == 'encode' or direction == 'decode':
         text = input("Type your message:\n").lower()
