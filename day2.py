@@ -9,5 +9,5 @@
 # noOfPeople=int(input("how many people to split the bill ? : "))
 # bill="{:.2f}".format((bill+bill*percent/100)/noOfPeople)
 # print(f"Each person should pay : {bill}")
-
+#
 #                                
